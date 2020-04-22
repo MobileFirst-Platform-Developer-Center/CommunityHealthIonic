@@ -1,0 +1,47 @@
+<ion-header>
+    <ion-navbar color="primary" hideBackButton="true">
+        <ion-title>Appointment List</ion-title>
+        <ion-buttons end>
+            <button ion-button color="light" clear (tap)="logout()">Logout</button>
+        </ion-buttons>
+    </ion-navbar>
+</ion-header>
+<ion-content class="appointmentsPage">
+    <!--
+-->
+    <ion-refresher (ionRefresh)="doRefresh($event)" pullMax="500">
+        <ion-refresher-content></ion-refresher-content>
+    </ion-refresher>
+    <div *ngIf="loading">
+        <ion-grid style="height: 100%">
+            <ion-row justify-content-center align-items-center style="height: 100%; flex-direction: column">
+                <ion-spinner [hidden]="!loading" class="spinnerContainer"></ion-spinner>
+            </ion-row>
+        </ion-grid>
+    </div>
+    <ion-list [hidden]="loading">
+        <ion-item-divider>{{formatDividerDate()}}</ion-item-divider>
+        <button ion-item *ngFor="let appointment of appointments" class="appointment" (click)="openAppointmentDetails(appointment)">
+            <div class="appointmentBody">
+                <div class="patientPictureContainer">
+                    <img class="patientPicture" [src]="appointment.patient.imageUrl">
+                    <ion-icon name="checkmark-circle" class="done" balanced *ngIf="appointment.appointmentStatus == 'COMPLETED'"></ion-icon>
+                </div>
+                <div class="appointmentContent">
+                    <div class="patientName">{{appointment.patient.name}}</div>
+                    <div class="reason">{{appointment.reason}}</div>
+                </div>
+                <!--<div class="chevron">
+                <ion-icon name="arrow-forward"></ion-icon>
+                </div>-->
+            </div>
+            <ion-grid>
+                <ion-row class="appointmentFooter" no-padding>
+                    <ion-col no-padding text-left>Appt time: {{formatAppointmentTime(appointment)}}</ion-col>
+                    <ion-col no-padding text-center>Wait: {{appointment.waitingDuration}}</ion-col>
+                    <ion-col no-padding text-right><span class="patientLocation" [ngClass]="getPatientLocationClass(appointment)">{{appointment.patientLocation}}</span></ion-col>
+                </ion-row>
+            </ion-grid>
+        </button>
+    </ion-list>
+</ion-content>

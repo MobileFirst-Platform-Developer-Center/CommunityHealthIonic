@@ -1,0 +1,67 @@
+.appointmentDetailPage {
+    padding: 0;
+    .appointmentControlContainer {
+        background-color: color($colors, secondary, base);
+        .timeContainer {
+            color: color($colors, white, base);
+            text-align: center;
+            padding-top: 6px;
+            .label {
+                font-size: 11px;
+            }
+            .time {
+                font-size: 25px;
+                font-size: 1.5em;
+                font-weight: bold
+            }
+        }
+        .controlButtonContainer {
+            ion-row {
+                padding-top: 0;
+                padding-bottom: 0;
+                ion-col {
+                    padding-top: 0;
+                    padding-bottom: 0;
+                }
+            }
+        }
+        .finishedLabel {
+            text-align: center;
+            color: color($colors, white, base);
+            font-size: 18px;
+            padding: 0 20px;
+        }
+    }
+    ion-item-divider {
+        margin-top: 5px;
+        background-color: #a2a2a2;
+        padding: 6px 16px;
+        color: color($colors, white, base);
+        text-align: center;
+        font-weight: bold;
+    }
+    .appointmentDetailsContainer {
+        padding: 15px;
+        .title {
+            font-weight: bold;
+            padding-bottom: 5px;
+        }
+        .content {}
+    }
+    .addNoteContainer {
+        border-bottom: 1px solid color($colors, medium2, base);
+        padding: 10px;
+        text-align: center;
+    }
+    .notesContainer {
+        .note {
+            padding: 15px;
+            border-bottom: 1px solid color($colors, medium2, base);
+            .date {
+                font-weight: bold;
+                padding-bottom: 5px;
+            }
+            .content {}
+        }
+    }
+}

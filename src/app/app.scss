@@ -1,0 +1,123 @@
+// http://ionicframework.com/docs/theming/
+// App Global Sass
+// --------------------------------------------------
+// Put style rules here that you want to apply globally. These
+// styles are for the entire app and not just one component.
+// Additionally, this file can be also used as an entry point
+// to import other Sass files to be included in the output CSS.
+//
+// Shared Sass variables, which can be used to adjust Ionic's
+// default Sass variables, belong in "theme/variables.scss".
+//
+// To declare rules for a specific mode, create a child rule
+// for the .md, .ios, or .wp mode classes. The mode class is
+// automatically applied to the <body> element in the app.
+
+
+
+.hidden {
+    display: none;
+}
+
+.spinnerContainer {
+    text-align: center;
+    padding: 20px;
+}
+
+ion-item-divider {
+    background-color: color($colors, medium, base);
+    padding: 6px 16px;
+    color: color($colors, white, base);
+    text-align: center;
+    font-weight: bold;
+}
+
+.appointment {
+    padding-left: 0px;
+    position: relative;
+
+    ion-label {
+        margin: 0;
+    }
+
+    .item-inner {
+        margin-bottom: 1.3em;
+    }
+
+    .appointmentBody {
+        display: flex;
+        padding: 15px 0 10px 15px;
+        align-items: center;
+        
+        .patientPictureContainer {
+            width: 90px;
+            height: 90px;
+            min-width: 90px;
+            min-height: 90px;
+            border-radius: 1000px;
+            border: 1px solid color($colors, dark, base);
+            position: relative;
+            
+            ion-icon.done {
+                position: absolute;
+                bottom: 0;
+                right: 0;
+                font-size: 2em;
+                background: color($colors, balanced, base);
+                color: white;
+                border-radius: 100%;
+                height: 1em;
+                width: 1em;
+                text-align: center;                
+            }
+        }
+        
+        .appointmentContent {
+            flex: 1 0 auto;
+            padding: 0 10px;
+            white-space: normal;
+            
+            .patientName {
+                font-size: 16px;
+                font-weight: bold;
+            }
+            .reason {
+                max-width: 225px;
+                padding: 5px 0;
+                font-size: 13px;
+            }
+        }
+        .chevron {
+            font-size: 38px;
+            color: color($colors, medium, base);
+        }
+    }
+
+    .appointmentFooter {
+        background-color: color($colors, light, base);
+        padding: 6px 10px;
+        font-size: 12px; 
+        position: absolute;
+        bottom: 1px;
+        width: 100%;
+        line-height: 1em;
+
+        .patientLocation {
+            font-size: 12px;
+            padding: 2px 7px;
+            border-radius: 2px;
+            color: color($colors, white, base);
+                            
+            &.inProgress {
+                background-color: color($colors, balanced, base);
+            }
+            &.waiting {
+                background-color: color($colors, balanced, base);
+            }
+            &.waitingInRoom {
+                background-color: color($colors, assertive, base);
+            }
+        }
+    }
+
+}

@@ -1,0 +1,204 @@
+[{
+	"id": 1,
+	"doctorId": "drsam",
+	"patient": {
+		"name": "Deepika K",
+		"imageUrl": "assets/imgs/female_14.png",
+		"gender": "Female",
+		"dob": "1981-06-26",
+		"allergies": "None",
+		"emergencyContactName": "Ramanand ",
+		"emergencyContactNumber": "9902534567",
+		"race": "Indian",
+		"employmentStatus": "Full-time",
+		"preferredLanguage": "English"
+
+	},
+	"reason": "Has been experiencing frequent, intense headaches, and has pain in left ear.",
+	"scheduledTime": "2018-03-11 12:15:00",
+	"waitingDuration": "13:14",
+	"patientLocation": "room 2",
+	"appointmentStatus": "WAITING_IN_ROOM",
+	"notes": [{
+		"id": 1,
+		"timestamp": "2018-03-07 10:34:22",
+		"content": "This patient has a history of ear infections.  May want to conditional additional diagnostic measures to determine root cause."
+	},
+	{
+		"id": 2,
+		"timestamp": "2017-09-15 10:37:22",
+		"content": "In the most recent test results orderd, it was identified that this patient suffers sufficiently from asthema so as to warrant the prescription of an inhaler."
+	}],
+	"visits": [{
+		"date": "2017-5-23",
+		"summary": "Follow-up appointment after car accident to assess recovery and take corrective action"
+	},
+	{
+		"date": "2017-03-11",
+		"summary": "Determination of necessary physiotherapy following car accident"
+	},
+	{
+		"date": "2016-02-03",
+		"summary": "Patient has been noticing a persistent shortness of breath, with excessive muscle fatigue"
+	}],
+	"medications": [{
+		"name": "Penicillin",
+		"purpose": "Used to treat ear infection causing significantp pain in left ear."
+	},
+	{
+		"name": "Lipitor",
+		"purpose": "Cholesterol lowering statin drug"
+	},
+	{
+		"name": "Nexium",
+		"purpose": "Used to treat persistent heartburn due to acid reflux and a weak pyloric valve"
+	},
+	{
+		"name": "Advair Diskus",
+		"purpose": "Used to treat patient's asthema on an as-needed basis."
+	}],
+	"tests": [{
+		"id": "123",
+		"type": "Comprehensive metabolic panel",
+		"ordered": "2016-05-09 9:23",
+		"submitted": "2016-05-09 9:56"
+	},
+	{
+		"id": "456",
+		"type": "X-Ray for ankle fracture",
+		"ordered": "2015-11-03 10:41",
+		"submitted": "2015-11-03 11:33",
+		"received": "2015-11-03 13:19"
+	},
+	{
+		"id": "789",
+		"type": "Chest X-Ray",
+		"ordered": "2015-02-14 14:17",
+		"submitted": "2015-02-15 09:11",
+		"received": "2015-02-23 18:23"
+	},
+	{
+		"id": "007",
+		"type": "Echocardiogram",
+		"ordered": "2014-05-09 10:23",
+		"submitted": "2014-05-09 12:51",
+		"received": "2014-05-09 15:15"
+	}]
+},{
+	"id": 2,
+	"doctorId": "drsam",
+	"patient": {
+		"name": "vivin k",
+		"imageUrl": "assets/imgs/male_11.png",
+		"gender": "Male",
+		"dob": "1985-06-26"
+	},
+	"reason": "Has been experiencing frequent, intense headaches, and has pain in left ear.",
+	"scheduledTime": "2018-03-11 13:15:00",
+	"waitingDuration": "16:14",
+	"patientLocation": "waiting area",
+	"appointmentStatus": "WAITING"
+},
+{
+	"id": 3,
+	"doctorId": "drsam",
+	"patient": {
+		"name": "Norton A",
+		"imageUrl": "assets/imgs/male_02.png",
+		"gender": "Male",
+		"dob": "1961-07-26",
+		"allergies": "None",
+		"emergencyContactName": "Joyce Justin",
+		"emergencyContactNumber": "9746323546",
+		"race": "Malaysian",
+		"employmentStatus": "Full-time",
+		"preferredLanguage": "English"
+	},
+	"reason": "Persistent cough",
+	"scheduledTime": "2018-03-11 15:15:00",
+	"waitingDuration": "3:14",
+	"patientLocation": "waiting area",
+	"appointmentStatus": "WAITING_IN_ROOM",
+	"notes": [],
+	"visits": [],
+	"medications": [],
+	"tests": []
+},
+{
+	"id": 4,
+	"doctorId": "drsam",
+	"patient": {
+		"name": "Kalpana M",
+		"imageUrl": "assets/imgs/female_07.png",
+		"gender": "Female",
+		"dob": "1974-02-13",
+		"allergies": "None",
+		"emergencyContactName": "Nivedha K",
+		"emergencyContactNumber": "435786866",
+		"race": "African American",
+		"employmentStatus": "Full-time",
+		"preferredLanguage": "English"
+	},
+	"reason": "Persistent cough",
+	"scheduledTime": "2018-03-11 15:15:00",
+	"waitingDuration": "3:14",
+	"patientLocation": "not arrived",
+	"appointmentStatus": "NOT_ARRIVED",
+	"notes": [],
+	"visits": [],
+	"medications": [],
+	"tests": []
+},
+{
+	"id": 5,
+	"doctorId": "drsam",
+	"patient": {
+		"name": "Prashanth Bhat",
+		"imageUrl": "assets/imgs/male_01.png",
+		"gender": "Male",
+		"dob": "1983-07-26",
+		"allergies": "None",
+		"emergencyContactName": "Amit K",
+		"emergencyContactNumber": "416-697-4964",
+		"race": "Causasian",
+		"employmentStatus": "Full-time",
+		"preferredLanguage": "English"
+	},
+	"reason": "Has felt abormally tied for the past week",
+	"scheduledTime": "2018-03-11 14:30:00",
+	"waitingDuration": "3:14",
+	"patientLocation": "waiting area",
+	"appointmentStatus": "WAITING_IN_ROOM",
+	"notes": [],
+	"visits": [],
+	"medications": [],
+	"tests": []
+},
+{
+	"id": 6,
+	"doctorId": "drsam",
+	"patient": {
+		"name": "Marsha Campbell",
+		"imageUrl": "assets/imgs/female_11.png",
+		"gender": "Female",
+		"dob": "1985-07-26",
+		"allergies": "None",
+		"emergencyContactName": "Nathan Campbell",
+		"emergencyContactNumber": "416-697-4964",
+		"race": "Filipino",
+		"employmentStatus": "Full-time",
+		"preferredLanguage": "English"
+	},
+	"reason": "Follow-up appointment following car accident to assess impact of physiotheraphy",
+	"scheduledTime": "2018-03-11 14:45:00",
+	"waitingDuration": "3:14",
+	"patientLocation": "waiting area",
+	"appointmentStatus": "WAITING_IN_ROOM",
+	"notes": [],
+	"visits": [],
+	"medications": [],
+	"tests": []
+}
+
+
+]

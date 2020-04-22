@@ -1,0 +1,14 @@
+<ion-header>
+    <ion-navbar color="assertive">
+        <ion-buttons start>
+            <button ion-button color="light" clear (tap)="cancel()">Cancel</button>
+        </ion-buttons>
+        <ion-title>Authentication</ion-title>
+    </ion-navbar>
+</ion-header>
+<ion-content padding class="stepUpAuthenticationModal">
+    <div class="explanation">Additional security is required before performing this action. Answer the question below to confirm your authorization to perform this action.</div>
+    <div class="question">{{challenge.question}}</div>
+    <div class="inputContainer"><input [(ngModel)]="answer"></div>
+    <div class="buttonContainer"><button ion-button color="secondary" block (tap)="submitChallenge()">Submit</button></div>
+</ion-content>

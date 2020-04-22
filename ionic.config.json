@@ -1,0 +1,7 @@
+{
+  "name": "communityhealth",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "ionic-angular"
+}

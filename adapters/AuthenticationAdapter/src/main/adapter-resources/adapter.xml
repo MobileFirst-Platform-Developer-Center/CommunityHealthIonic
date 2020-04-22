@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+	Licensed Materials - Property of IBM
+	5725-I43 (C) Copyright IBM Corp. 2011, 2013. All Rights Reserved.
+	US Government Users Restricted Rights - Use, duplication or
+	disclosure restricted by GSA ADP Schedule Contract with IBM Corp.
+-->
+<mfp:adapter name="AuthenticationAdapter"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:mfp="http://www.ibm.com/mfp/integration"
+	xmlns:http="http://www.ibm.com/mfp/integration/http">
+
+	<displayName>AuthenticationAdapter</displayName>
+	<description>AuthenticationAdapter</description>
+
+<securityCheckDefinition name="UserLoginSecurityCheck" class="com.ibm.communityhealth.AuthenticationAdapter">
+		<property name="maxDevices" displayName="Max Devices" defaultValue="1" description="Default Number Of Allowed Devices" type="integer"/>
+		<property name="autoLogout" displayName="Auto Logout" defaultValue="true" description="Choose 'true' to enable auto logout on other devices, or false to restrict current device login" type="boolean"/>
+
+		<property name="maxAttempts" displayName="Max Attempts" defaultValue="3" description="How many attempts are allowed" type="integer"/>
+		<property name="blockedStateExpirationSec" displayName="Blocked State Expiration (In Seconds)" defaultValue="10" description="How long before the client can try again (seconds)" type="integer"/>
+		<property name="successStateExpirationSec" displayName="Success State Expiration (In Seconds)" defaultValue="60" description="How long is a successful state valid for (seconds)" type="integer"/>
+		<property name="rememberMeDurationSec" displayName="Remember Me Duration (In Seconds)" defaultValue="120" description="How long is the user remembered when using RememberMe (seconds)" type="integer"/>
+	</securityCheckDefinition>
+
+
+
+	<securityCheckDefinition name="StepUpSecurityCheck" class="com.ibm.communityhealth.StepUpAuthenticationAdapter">
+    	<property name="successStateExpirationSec" defaultValue="60"/>
+    	<property name="blockedStateExpirationSec" defaultValue="60"/>
+    	<property name="maxAttempts" defaultValue="3"/>
+	</securityCheckDefinition>
+	
+</mfp:adapter>

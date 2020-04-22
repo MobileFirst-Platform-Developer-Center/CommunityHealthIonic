@@ -1,0 +1,219 @@
+<ion-header>
+    <ion-navbar color="primary">
+        <ion-title>Patient Detail</ion-title>
+        <ion-buttons end>
+            <button ion-button color="light" clear [disabled]="isSaveDisabled()" (tap)="saveChanges()">Save</button>
+        </ion-buttons>
+    </ion-navbar>
+</ion-header>
+<ion-content class="patientDetailPage">
+    <ion-toolbar light>
+        <div class="patientHeader">
+            <div class="appointment">
+                <div class="appointmentBody">
+                    <div class="patientPictureContainer">
+                        <img class="patientPicture" [src]="appointment.patient.imageUrl">
+                    </div>
+                    <div class="appointmentContent">
+                        <div class="patientName">{{appointment.patient.name}}</div>
+                        <div class="reason">{{appointment.patient.gender}}, {{getPatientAge(appointment.patient)}}</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </ion-toolbar>
+    <div [ngSwitch]="activeTab">
+        <div *ngSwitchCase="'details'">
+            <ion-list class="detailsList">
+                <ion-item-divider>Basic Information</ion-item-divider>
+                <ion-item>
+                    <ion-label>Allergies</ion-label>
+                    <ion-input type="text" [(ngModel)]="appointment.patient.allergies" (ngModelChange)="onChange($event)"></ion-input>
+                </ion-item>
+                <ion-item>
+                    <ion-label>Emergency contact name</ion-label>
+                    <ion-input type="text" [(ngModel)]="appointment.patient.emergencyContactName" (ngModelChange)="onChange($event)"></ion-input>
+                </ion-item>
+                <ion-item>
+                    <ion-label>Emergency contact number</ion-label>
+                    <ion-input type="text" [(ngModel)]="appointment.patient.emergencyContactNumber" (ngModelChange)="onChange($event)"></ion-input>
+                </ion-item>
+                <ion-item>
+                    <ion-label>Race</ion-label>
+                    <ion-input type="text" [(ngModel)]="appointment.patient.race" (ngModelChange)="onChange($event)"></ion-input>
+                </ion-item>
+                <ion-item>
+                    <ion-label>Employment status</ion-label>
+                    <ion-input type="text" [(ngModel)]="appointment.patient.employmentStatus" (ngModelChange)="onChange($event)"></ion-input>
+                </ion-item>
+                <ion-item>
+                    <ion-label>Preferred language</ion-label>
+                    <ion-input type="text" [(ngModel)]="appointment.patient.preferredLanguage" (ngModelChange)="onChange($event)"></ion-input>
+                </ion-item>
+
+                <ion-item-divider>Family Members</ion-item-divider>
+                <ion-item>
+                    <ion-label>Allergies</ion-label>
+                    <ion-input type="text" value="None"></ion-input>
+                </ion-item>
+                <ion-item>
+                    <ion-label>Emergency contact name</ion-label>
+                    <ion-input type="text" value="Rachel Taylor"></ion-input>
+                </ion-item>
+                <ion-item>
+                    <ion-label>Emergency contact number</ion-label>
+                    <ion-input type="text" value="416-697-4964"></ion-input>
+                </ion-item>
+                <ion-item>
+                    <ion-label>Race</ion-label>
+                    <ion-input type="text" value="Korean"></ion-input>
+                </ion-item>
+                <ion-item>
+                    <ion-label>Employment status</ion-label>
+                    <ion-input type="text" value="Full-time"></ion-input>
+                </ion-item>
+                <ion-item>
+                    <ion-label>Preferred language</ion-label>
+                    <ion-input type="text" value="English"></ion-input>
+                </ion-item>
+
+                <ion-item-divider>Conditions</ion-item-divider>
+                <ion-item>
+                    <ion-label>Allergies</ion-label>
+                    <ion-input type="text" value="None"></ion-input>
+                </ion-item>
+                <ion-item>
+                    <ion-label>Emergency contact name</ion-label>
+                    <ion-input type="text" value="Rachel Taylor"></ion-input>
+                </ion-item>
+                <ion-item>
+                    <ion-label>Emergency contact number</ion-label>
+                    <ion-input type="text" value="416-697-4964"></ion-input>
+                </ion-item>
+                <ion-item>
+                    <ion-label>Race</ion-label>
+                    <ion-input type="text" value="Korean"></ion-input>
+                </ion-item>
+                <ion-item>
+                    <ion-label>Employment status</ion-label>
+                    <ion-input type="text" value="Full-time"></ion-input>
+                </ion-item>
+                <ion-item>
+                    <ion-label>Preferred language</ion-label>
+                    <ion-input type="text" value="English"></ion-input>
+                </ion-item>
+
+                <ion-item-divider>Devices</ion-item-divider>
+                <ion-item>
+                    <ion-label>Allergies</ion-label>
+                    <ion-input type="text" value="None"></ion-input>
+                </ion-item>
+                <ion-item>
+                    <ion-label>Emergency contact name</ion-label>
+                    <ion-input type="text" value="Rachel Taylor"></ion-input>
+                </ion-item>
+                <ion-item>
+                    <ion-label>Emergency contact number</ion-label>
+                    <ion-input type="text" value="416-697-4964"></ion-input>
+                </ion-item>
+                <ion-item>
+                    <ion-label>Race</ion-label>
+                    <ion-input type="text" value="Korean"></ion-input>
+                </ion-item>
+                <ion-item>
+                    <ion-label>Employment status</ion-label>
+                    <ion-input type="text" value="Full-time"></ion-input>
+                </ion-item>
+                <ion-item>
+                    <ion-label>Preferred language</ion-label>
+                    <ion-input type="text" value="English"></ion-input>
+                </ion-item>
+            </ion-list>
+
+        </div>
+        <div *ngSwitchCase="'visits'">
+            <ion-list class="detailsList">
+                <ion-item-divider>Patient Visit History</ion-item-divider>
+                <ion-item *ngFor="let visit of appointment.visits">
+                    <ion-icon name="home"></ion-icon>
+                    <span class="title">{{formatVisitDate(visit.date)}}</span>
+                    <div class="details">{{visit.summary}}</div>
+                    <ion-icon item-right name="arrow-forward"></ion-icon>
+                </ion-item>
+            </ion-list>
+        </div>
+        <div *ngSwitchCase="'medications'">
+            <ion-list class="detailsList">
+                <ion-item-divider>Patient Medication History</ion-item-divider>
+                <ion-item *ngFor="let medication of appointment.medications">
+                    <span class="title">{{medication.name}}</span>
+                    <div class="details" style="padding-left: 0">{{medication.purpose}}</div>
+                    <ion-icon item-right name="arrow-forward"></ion-icon>
+                </ion-item>
+            </ion-list>
+        </div>
+        <div *ngSwitchCase="'tests'">
+            <ion-list class="detailsList">
+                <ion-item-divider>Patient Test History</ion-item-divider>
+                <ion-item-sliding *ngFor="let test of appointment.tests">
+                    <ion-item class="testItem">
+                        <div class="title">
+                            <ion-icon class="primaryIcon" name="medkit"></ion-icon> {{test.type}}
+                            <ion-icon name="arrow-forward"></ion-icon>
+                        </div>
+                        <div class="testStatusContainer">
+                            <div class="spacer"></div>
+                            <div class="testStatusItem">
+                                <div class="itemTitle">Ordered</div>
+                                <div class="itemDate">{{formatTestItemDate(test.ordered)}}</div>
+                                <div class="itemDate">{{formatTestItemTime(test.ordered)}}</div>
+                            </div>
+                            <div class="chevron"><i class="fa fa-caret-right" secondary></i></div>
+                            <div class="testStatusItem">
+                                <div class="itemTitle">Submitted</div>
+                                <div class="itemDate">{{formatTestItemDate(test.submitted)}}</div>
+                                <div class="itemDate">{{formatTestItemTime(test.submitted)}}</div>
+                            </div>
+                            <div class="chevron"><i class="fa fa-caret-right" secondary></i></div>
+                            <div class="testStatusItem">
+                                <div class="itemTitle">Received</div>
+                                <div class="itemDate">{{formatTestItemDate(test.received)}}</div>
+                                <div class="itemDate">{{formatTestItemTime(test.received)}}</div>
+                            </div>
+                            <div class="spacer"></div>
+                        </div>
+                    </ion-item>
+                    <ion-item-options>
+                        <button ion-button color="secondary" (tap)="subscribeToTest(test)">
+              <ion-icon name="paper-plane"></ion-icon>
+                Subscribe
+            </button>
+                        <button  ion-button color="primary">
+              <ion-icon name="remove-circle"></ion-icon>
+              Cancel
+            </button>
+                    </ion-item-options>
+                </ion-item-sliding>
+            </ion-list>
+        </div>
+    </div>
+
+</ion-content>
+<ion-footer>
+    <ion-toolbar light>
+        <div class="healthTabBar">
+            <div class="healthTab" (tap)="setTab('details')" [ngClass]="{selected: activeTab == 'details'}"><i class="fa menuIcon fa-list-alt"></i>
+                <div class="label">Details</div>
+            </div>
+            <div class="healthTab" (tap)="setTab('visits')" [ngClass]="{selected: activeTab == 'visits'}"><i class="fa menuIcon fa-map-marker"></i>
+                <div class="label">Visits</div>
+            </div>
+            <div class="healthTab" (tap)="setTab('medications')" [ngClass]="{selected: activeTab == 'medications'}"><i class="fa menuIcon fa-medkit"></i>
+                <div class="label">Medications</div>
+            </div>
+            <div class="healthTab" (tap)="setTab('tests')" [ngClass]="{selected: activeTab == 'tests'}"><i class="fa menuIcon fa-heartbeat"></i>
+                <div class="label">Tests</div>
+            </div>
+        </div>
+    </ion-toolbar>
+</ion-footer>

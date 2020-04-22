@@ -1,0 +1,61 @@
+.loginPage {
+    .pageContent {
+        padding: 0 35px;
+    }
+    .logo {
+        height: 125px;
+        background-size: 100%;
+        max-width: 250px;
+        background-image: url(../assets/imgs/logo.png);
+        background-repeat: no-repeat;
+        background-position: center center;
+        margin: auto;
+        margin-top: 40px;
+        margin-bottom: 20px;
+    }
+    .loginBox {
+        background-color: color($colors, primary, base);
+        padding: 8px;
+        border-radius: 2px;
+        margin: 0 auto;
+        padding-bottom: 6px;
+        max-width: 350px;
+        box-shadow: 2px 2px 3px color($colors, medium, base);
+        .inputContainer {
+            background-color: color($colors, white, base);
+            border-radius: 0 0 2px 2px;
+            input {
+                border: 0;
+                text-align: center;
+                padding: 20px;
+                font-size: 1.3em;
+                width: 100%;
+                background-color: transparent;
+            }
+        }
+        .inputContainer:first-child {
+            border-bottom: 1px solid color($colors, light, base);
+            border-radius: 2px 2px 0 0;
+        }
+        .buttonContainer {
+            padding-top: 5px;
+        }
+        ion-spinner {
+            text-align: center;
+            ion-spinner * {
+                stroke: #FFFFFF;
+            }
+        }
+    }
+    .errorBox {
+        margin: 0 auto;
+        max-width: 350px;
+        box-shadow: 2px 2px 3px color($colors, medium, base);
+        margin-top: 15px;
+        background-color: color($colors, assertive, base);
+        color: color($colors, white, base);
+        padding: 10px;
+        text-align: center;
+        border-radius: 2px;
+    }
+}

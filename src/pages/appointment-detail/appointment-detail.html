@@ -1,0 +1,89 @@
+<ion-header>
+    <ion-navbar color="primary">
+        <ion-title>Appointment Detail</ion-title>
+        <ion-buttons end>
+            <button ion-button color="light" clear [ngClass]="{hidden: !isDirty}" disabled="true">modified</button>
+        </ion-buttons>
+    </ion-navbar>
+</ion-header>
+<ion-content class="appointmentDetailPage">
+    <div class="appointmentControlContainer">
+        <ion-grid>
+        <ion-row>
+            <ion-col>
+                <div class="timeContainer">
+                    <div class="label">Wait time</div>
+                    <div class="time">{{formatWaitTime(appointment)}}</div>
+                </div>
+            </ion-col>
+            <ion-col col-6>
+                <div class="controlButtonContainer">
+                    <button ion-button color="balanced" block *ngIf="appointment.appointmentStatus == 'WAITING_IN_ROOM'" (tap)="beginAppointment()">Begin</button>
+                    <ion-row>
+                        <ion-col>
+                            <button ion-button color="primary_dark" block *ngIf="appointment.appointmentStatus == 'IN_PROGRESS'" (tap)="suspendAppointment()">Suspend</button>
+                            <button ion-button color="primary_dark" block *ngIf="appointment.appointmentStatus == 'SUSPENDED'" (tap)="resumeAppointment()">Resume</button>
+                        </ion-col>
+                        <ion-col>
+                            <button ion-button color="assertive" block *ngIf="appointment.appointmentStatus == 'IN_PROGRESS' || appointment.appointmentStatus == 'SUSPENDED'" (tap)="finishAppointment()">Finish</button>
+                        </ion-col>
+                    </ion-row>
+                    <div class="finishedLabel" *ngIf="appointment.appointmentStatus == 'COMPLETED'">Appointment complete</div>
+                </div>
+            </ion-col>
+            <ion-col>
+                <div class="timeContainer">
+                    <div class="label">Duration</div>
+                    <div class="time">{{formatAppointmentDuration(appointment)}}</div>
+                </div>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+    </div>
+
+    <button ion-item class="appointment" (click)="openPatientDetails(appointment)">
+    <div class="appointmentBody" >
+      <div class="patientPictureContainer">
+        <img class="patientPicture" [src]="appointment.patient.imageUrl">
+      </div>
+      <div class="appointmentContent">
+        <div class="patientName">{{appointment.patient.name}}</div>
+        <div class="reason">{{appointment.patient.gender}}, {{getPatientAge(appointment.patient)}}</div>
+      </div>
+      <!--<div class="chevron">
+        <ion-icon name="arrow-forward"></ion-icon>
+      </div>-->
+    </div>
+    <ion-grid>
+    <ion-row class="appointmentFooter" no-padding>
+      <ion-col no-padding text-left>Appt time: {{formatAppointmentTime(appointment)}}</ion-col>
+      <ion-col no-padding text-center>Wait: {{appointment.waitingDuration}}</ion-col>
+      <ion-col no-padding text-right><span class="patientLocation" [ngClass]="getPatientLocationClass(appointment)">{{appointment.patientLocation}}</span></ion-col>
+    </ion-row>
+    </ion-grid>
+  </button>
+    <ion-item-divider>Appointment Details</ion-item-divider>
+    <div class="appointmentDetailsContainer">
+        <div class="title">Reason for appointment</div>
+        <div class="content">{{appointment.reason}}</div>
+    </div>
+    <ion-item-divider>Actions</ion-item-divider>
+    <div>
+        <ion-row>
+            <ion-col width-33><button block ion-button icon-start color="primary" outline (tap)="addTest()"><ion-icon name="add"></ion-icon> Tests</button></ion-col>
+            <ion-col width-33><button block ion-button icon-start color="primary" outline (tap)="addMedication()"><ion-icon name="add"></ion-icon> Meds</button></ion-col>
+            <ion-col width-33><button block ion-button icon-start color="primary" outline><ion-icon name="add"></ion-icon> Appt</button></ion-col>
+        </ion-row>
+    </div>
+    <ion-item-divider>Notes</ion-item-divider>
+    <div class="addNoteContainer">
+        <button ion-button color="primary" icon-start outline (tap)="addNote()"><ion-icon name="add"></ion-icon> Note</button>
+    </div>
+    <div class="notesContainer">
+        <div class="note" *ngFor="let note of appointment.notes">
+            <div class="date">{{formatNoteTimestamp(note)}}</div>
+            <div class="content">{{note.content}}</div>
+        </div>
+    </div>
+
+</ion-content>
