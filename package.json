@@ -41,7 +41,7 @@
     "font-awesome": "4.7.0",
     "ionic-angular": "3.9.5",
     "ionicons": "3.0.0",
-    "moment": "^2.18.1",
+    "moment": "^2.29.2",
     "rxjs": "5.5.11",
     "sw-toolbox": "3.6.0",
     "zone.js": "0.8.29"
